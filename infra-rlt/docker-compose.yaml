@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  rlt-mongo:
+    container_name: ${MONGO_NAME}
+    restart: always
+    image: mongo
+    env_file:
+      - ./.env
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - '27017:27017'
+
+volumes:
+  mongo_data:
